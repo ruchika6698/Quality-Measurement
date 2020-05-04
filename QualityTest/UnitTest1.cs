@@ -146,5 +146,14 @@ namespace QualityTest
             double inch = converstion.GetInch(0);
             Assert.AreEqual(Feet, inch);
         }
+        /// <summary>
+        ///UC1: TC-1.14: 1 feet not equal to one inch
+        /// </summary>
+        [Test]
+        public void GivenFeetnotInch_Whenvalue1_ShouldReturnequal()
+        {
+            double Feet = converstion.GetFeet(1);
+            Assert.AreNotEqual(1, Feet);
+        }
     }
 }
