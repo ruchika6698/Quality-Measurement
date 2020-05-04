@@ -9,15 +9,15 @@ namespace QualityMeasurment
         /// </summary>
         public double feet;
         private double inch;
-
-        
         public enum Unit { feet, inch, yard }
-
-        internal double length(Unit feet, string v)
+        /// <summary>
+        /// Main Method
+        /// </summary>
+        static void Main(string[] args)
         {
-            throw new NotImplementedException();
-        }
+            Console.WriteLine("Welcome to Quality Measurment problem");
 
+        }
         /// <summary>
         /// Method to Feet
         /// </summary>
@@ -62,6 +62,9 @@ namespace QualityMeasurment
         {
             return inch = feet / 12;
         }
-       
+        internal double length(Unit feet, string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
