@@ -100,5 +100,16 @@ namespace QualityTest
                 Assert.AreEqual(e.type, CustomException.ExceptionType.INPUT_NULL);
             }
         }
+        /// <summary>
+        ///UC1: TC-1.9: Test of equality to check reference should return false for inches
+        /// </summary>
+        [Test]
+        public void GivenInchesRefType_whenCheckRef_ShouldReturnFalse()
+        {
+            double quantity = converstion.InchMeasure("0.0");
+            double quantity1 = converstion1.InchMeasure("0.0");
+            bool areEqual = ReferenceEquals(quantity, quantity1);
+            Assert.IsFalse(areEqual);
+        }
     }
 }
