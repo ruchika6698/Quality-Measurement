@@ -21,16 +21,16 @@ namespace QualityTest
         ///UC1: TC-1.2: Zero feet should return zero
         /// </summary>
         [Test]
-        public void GivenZeroFeet_whenZeroFeet_shouldRetrunEqual()
+        public void GivenZeroInch_whenZeroFeet_shouldRetrunEqual()
         {
             double inch = converstion.Measure("0");
             Assert.AreEqual(0, inch);
         }
         /// <summary>
-        ///UC1: TC-1.3: Test of equality to check null input 
+        ///UC1: TC-1.3: Test of equality to check null input feet
         /// </summary>
         [Test]
-        public void GivenZeroFeet_WhenCheckNull_shouldReturnNullPointerException()
+        public void GivenZeroInch_WhenCheckNull_shouldReturnNullPointerException()
         {
             try
             {
@@ -82,8 +82,23 @@ namespace QualityTest
         [Test]
         public void GivenFeetsAndInches_CompareEquals_ReturnInches()
         {
-            double inch = converstion.InchMeasure("36");
-            Assert.AreEqual(3, inch);
+            double inch = converstion.InchMeasure("45");
+            Assert.AreEqual(3.75, inch);
+        }
+        /// <summary>
+        ///UC1: TC-1.8: Test of equality to check null input for inches
+        /// </summary>
+        [Test]
+        public void GivenZeroFeet_WhenCheckNull_shouldReturnNullPointerException()
+        {
+            try
+            {
+                converstion.InchMeasure(null);
+            }
+            catch (CustomException e)
+            {
+                Assert.AreEqual(e.type, CustomException.ExceptionType.INPUT_NULL);
+            }
         }
     }
 }
