@@ -6,6 +6,7 @@ namespace QualityTest
     public class Tests
     {
         Conversion converstion = new Conversion();
+        Conversion converstion1 = new Conversion();
         /// <summary>
         ///UC1: TC-1.1: Test for comparision
         /// </summary>
@@ -47,7 +48,6 @@ namespace QualityTest
         public void GivenRefType_whenCheckRef_ShouldReturnFalse()
         {
             double quantity = converstion.Feetmeasure("0.0");
-            Conversion converstion1 = new Conversion();
             double quantity1 = converstion1.Feetmeasure("0.0");
             bool areEqual = ReferenceEquals(quantity, quantity1);
             Assert.IsFalse(areEqual);
@@ -66,6 +66,15 @@ namespace QualityTest
             {
                 Assert.AreEqual(e.type, CustomException.ExceptionType.TYPE_NOT_MATCH);
             }
+        }
+        /// <summary>
+        ///UC1: TC-1.6: value check for equality type
+        /// </summary>
+        [Test]
+        public void Given_Equality_Type_Feet_And_Should_Return_True()
+        {
+            bool equal = ReferenceEquals(converstion.GetType(), converstion1.GetType());
+            Assert.IsTrue(equal);
         }
     }
 }
