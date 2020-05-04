@@ -11,10 +11,10 @@ namespace QualityTest
         ///UC1: TC-1.1: Test for comparision
         /// </summary>
         [Test]
-        public void GivenInchesAndFeets_CompareEquals_ReturnBool()
+        public void GivenInchesAndFeets_CompareEquals_ReturnFeet()
         {
-            double inch = converstion.Feetmeasure("3");
-            Assert.AreEqual(36, inch);
+            double Feet = converstion.Measure("3");
+            Assert.AreEqual(36, Feet);
         }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace QualityTest
         [Test]
         public void GivenZeroFeet_whenZeroFeet_shouldRetrunEqual()
         {
-            double inch = converstion.Feetmeasure("0");
+            double inch = converstion.Measure("0");
             Assert.AreEqual(0, inch);
         }
         /// <summary>
@@ -34,7 +34,7 @@ namespace QualityTest
         {
             try
             {
-                converstion.Feetmeasure(null);
+                converstion.Measure(null);
             }
             catch(CustomException e)
             {
@@ -47,8 +47,8 @@ namespace QualityTest
         [Test]
         public void GivenRefType_whenCheckRef_ShouldReturnFalse()
         {
-            double quantity = converstion.Feetmeasure("0.0");
-            double quantity1 = converstion1.Feetmeasure("0.0");
+            double quantity = converstion.Measure("0.0");
+            double quantity1 = converstion1.Measure("0.0");
             bool areEqual = ReferenceEquals(quantity, quantity1);
             Assert.IsFalse(areEqual);
         }
@@ -60,7 +60,7 @@ namespace QualityTest
         {
             try
             {
-                converstion.Feetmeasure("1");
+                converstion.Measure("1");
             }
             catch (CustomException e)
             {
@@ -75,6 +75,15 @@ namespace QualityTest
         {
             bool equal = ReferenceEquals(converstion.GetType(), converstion1.GetType());
             Assert.IsTrue(equal);
+        }
+        /// <summary>
+        ///UC1: TC-1.7: Test for comparision
+        /// </summary>
+        [Test]
+        public void GivenFeetsAndInches_CompareEquals_ReturnInches()
+        {
+            double inch = converstion.InchMeasure("36");
+            Assert.AreEqual(3, inch);
         }
     }
 }

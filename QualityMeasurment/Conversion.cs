@@ -7,7 +7,8 @@ namespace QualityMeasurment
         /// <summary>
         /// Variable Declaration
         /// </summary>
-        public int feet;
+        public double feet;
+        private double inch;
 
         /// <summary>
         /// Main Method
@@ -22,18 +23,15 @@ namespace QualityMeasurment
         /// </summary>
         /// <param name="input"> input </param>
         /// <returns> Calculate Feet </returns>
-        public double Feetmeasure(string input)
+        public double Measure(string input)
         {
-            double feet;
-            // given 1ft=12 inch
-            double inch = 12;
             //if input type is not equal to null
             if (input != null)
             {
                 // Calculate feet value
-                if (double.TryParse(input, out feet))
+                if (double.TryParse(input, out inch))
                 {
-                    feet = feet * inch;
+                    feet = inch * 12;
                 }
                 else
                 {
@@ -48,5 +46,30 @@ namespace QualityMeasurment
             }
             return feet;
         }
+
+        public double InchMeasure(string input)
+        {
+            //if input type is not equal to null
+            if (input != null)
+            {
+                // Calculate feet value
+                if (double.TryParse(input, out feet))
+                {
+                    inch = feet / 12;
+                }
+                else
+                {
+                    //else throw Type Not Match exception
+                    throw new CustomException("Type Not Match", CustomException.ExceptionType.TYPE_NOT_MATCH);
+                }
+            }
+            else
+            {
+                //else throw Null exception
+                throw new CustomException("Null", CustomException.ExceptionType.INPUT_NULL);
+            }
+            return inch;
+        }
+        
     }
 }
