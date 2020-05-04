@@ -125,5 +125,14 @@ namespace QualityTest
                 Assert.AreEqual(e.type, CustomException.ExceptionType.TYPE_NOT_MATCH);
             }
         }
+        /// <summary>
+        ///UC1: TC-1.11: value check for equality type
+        /// </summary>
+        [Test]
+        public void GivenInches_Equality_Type_FeetAnd_ShouldReturnTrue()
+        {
+            bool equal = ReferenceEquals(converstion.GetType(), converstion1.GetType());
+            Assert.IsTrue(equal);
+        }
     }
 }
