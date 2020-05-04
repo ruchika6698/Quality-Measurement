@@ -1,6 +1,5 @@
 using NUnit.Framework;
 using QualityMeasurment;
-using System;
 
 namespace QualityTest
 {
@@ -11,17 +10,10 @@ namespace QualityTest
         ///UC1: TC-1.1: Test for comparision
         /// </summary>
         [Test]
-        public void GivenInchesAndFeets_CompareEquals_ReturnFeet()
+        public void GivenInchesAndFeets_CompareEquals_ReturnBool()
         {
-            try
-            {
-                double Feet = converstion.Feetmeasure("3");
-                Assert.AreEqual(36, Feet);
-            }
-            catch (CustomException e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            double inch = converstion.Feetmeasure("3");
+            Assert.AreEqual(36, inch);
         }
 
         /// <summary>
@@ -54,17 +46,25 @@ namespace QualityTest
         [Test]
         public void GivenRefType_whenCheckRef_ShouldReturnFalse()
         {
+            double quantity = converstion.Feetmeasure("0.0");
+            Conversion converstion1 = new Conversion();
+            double quantity1 = converstion1.Feetmeasure("0.0");
+            bool areEqual = ReferenceEquals(quantity, quantity1);
+            Assert.IsFalse(areEqual);
+        }
+        /// <summary>
+        ///UC1: TC-1.5: Test of equality to check type
+        /// </summary>
+        [Test]
+        public void GivenType_whenCheckType_ShouldReturnTypenotmatch()
+        {
             try
             {
-                double quantity = converstion.Feetmeasure("0.0");
-                Conversion converstion1 = new Conversion();
-                double quantity1 = converstion1.Feetmeasure("0.0");
-                bool areEqual = ReferenceEquals(quantity, quantity1);
-                Assert.IsFalse(areEqual);
+                converstion.Feetmeasure("1");
             }
             catch (CustomException e)
             {
-                Console.WriteLine(e.Message);
+                Assert.AreEqual(e.type, CustomException.ExceptionType.TYPE_NOT_MATCH);
             }
         }
     }
