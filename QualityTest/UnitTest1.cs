@@ -13,7 +13,7 @@ namespace QualityTest
         [Test]
         public void GivenInchesAndFeets_CompareEquals_ReturnFeet()
         {
-            double Feet = converstion.Measure("3");
+            double Feet = converstion.GetFeet(3);
             Assert.AreEqual(36, Feet);
         }
         /// <summary>
@@ -22,7 +22,8 @@ namespace QualityTest
         [Test]
         public void GivenZeroInch_whenZeroFeet_shouldRetrunEqual()
         {
-            double inch = converstion.Measure("0");
+            Conversion converstion = new Conversion();
+            double inch = converstion.Measure(Conversion.Unit.feet, "0");
             Assert.AreEqual(0, inch);
         }
         /// <summary>
@@ -33,7 +34,8 @@ namespace QualityTest
         {
             try
             {
-                converstion.Measure(null);
+                Conversion converstion = new Conversion();
+                converstion.Measure(Conversion.Unit.feet, null);
             }
             catch (CustomException e)
             {
@@ -46,8 +48,8 @@ namespace QualityTest
         [Test]
         public void GivenRefType_whenCheckRef_ShouldReturnFalse()
         {
-            double quantity = converstion.Measure("0.0");
-            double quantity1 = converstion1.Measure("0.0");
+            double quantity = converstion.Measure(Conversion.Unit.feet, "0.0");
+            double quantity1 = converstion1.Measure(Conversion.Unit.feet, "0.0");
             bool areEqual = ReferenceEquals(quantity, quantity1);
             Assert.IsFalse(areEqual);
         }
@@ -59,7 +61,7 @@ namespace QualityTest
         {
             try
             {
-                converstion.Measure("1");
+                converstion.Measure(Conversion.Unit.feet, "1");
             }
             catch (CustomException e)
             {
@@ -81,7 +83,7 @@ namespace QualityTest
         [Test]
         public void GivenFeetsAndInches_CompareEquals_ReturnInches()
         {
-            double inch = converstion.InchMeasure("45");
+            double inch = converstion.GetInch(45);
             Assert.AreEqual(3.75, inch);
         }
         /// <summary>
@@ -92,7 +94,7 @@ namespace QualityTest
         {
             try
             {
-                converstion.InchMeasure(null);
+                converstion.Measure(Conversion.Unit.inch, null);
             }
             catch (CustomException e)
             {
@@ -105,8 +107,8 @@ namespace QualityTest
         [Test]
         public void GivenInchesRefType_whenCheckRef_ShouldReturnFalse()
         {
-            double quantity = converstion.InchMeasure("0.0");
-            double quantity1 = converstion1.InchMeasure("0.0");
+            double quantity = converstion.Measure(Conversion.Unit.inch, "0.0");
+            double quantity1 = converstion.Measure(Conversion.Unit.inch, "0.0");
             bool areEqual = ReferenceEquals(quantity, quantity1);
             Assert.IsFalse(areEqual);
         }
@@ -118,7 +120,7 @@ namespace QualityTest
         {
             try
             {
-                converstion.InchMeasure("1");
+                converstion.Measure(Conversion.Unit.inch, "1");
             }
             catch (CustomException e)
             {
@@ -133,6 +135,52 @@ namespace QualityTest
         {
             bool equal = ReferenceEquals(converstion.GetType(), converstion1.GetType());
             Assert.IsTrue(equal);
+        }
+        /// <summary>
+        ///UC1: TC-1.12: 0 inch and 0 feet should return equal
+        /// </summary>
+        [Test]
+        public void GivenInchesandFeet_Whenbothzero_ShouldReturnequal()
+        {
+            double Feet = converstion.GetFeet(0);
+            double inch = converstion.GetInch(0);
+            Assert.AreEqual(Feet, inch);
+        }
+        /// <summary>
+        ///UC1: TC-1.13: 1 feet not equal to one inch
+        /// </summary>
+        [Test]
+        public void GivenFeetnotInch_Whenvalue1_ShouldReturnequal()
+        {
+            double Feet = converstion.GetFeet(1);
+            Assert.AreNotEqual(1, Feet);
+        }
+        /// <summary>
+        ///UC1: TC-1.14: 1 feet not equal to one inch
+        /// </summary>
+        [Test]
+        public void GivenInchnotFeet_Whenvalue1_ShouldReturnequal()
+        {
+            double Feet = converstion.GetInch(1);
+            Assert.AreNotEqual(1, Feet);
+        }
+        /// <summary>
+        ///UC1: TC-1.15: 1 feet not equal to one inch
+        /// </summary>
+        [Test]
+        public void GivenFeet_WhenInch_ShouldReturnInInches()
+        {
+            double Feet = converstion.GetFeet(1);
+            Assert.AreEqual(12, Feet);
+        }
+        /// <summary>
+        ///UC1: TC-1.16: 12 inch is equal to 1 feet
+        /// </summary>
+        [Test]
+        public void GivenInch_WhenConvertFeet_ShouldReturnInFeet()
+        {
+            double Inch = converstion.GetInch(12);
+            Assert.AreEqual(1,Inch);
         }
     }
 }

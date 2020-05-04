@@ -9,21 +9,21 @@ namespace QualityMeasurment
         /// </summary>
         public double feet;
         private double inch;
-
+        public enum Unit { feet, inch, yard }
         /// <summary>
         /// Main Method
         /// </summary>
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Quality Measurment problem");
-        }
 
+        }
         /// <summary>
         /// Method to Feet
         /// </summary>
         /// <param name="input"> input </param>
         /// <returns> Calculate Feet </returns>
-        public double Measure(string input)
+        public double Measure(Unit option,string input)
         {
             //if input type is not equal to null
             if (input != null)
@@ -31,7 +31,14 @@ namespace QualityMeasurment
                 // Calculate feet value
                 if (double.TryParse(input, out inch))
                 {
-                    feet = inch * 12;
+                    // Switch case for Feet ,Inches
+                    switch (option)
+                    {
+                        case Unit.feet:
+                            return GetFeet(feet);
+                        case Unit.inch:
+                            return GetInch(inch);
+                    };
                 }
                 else
                 {
@@ -47,29 +54,17 @@ namespace QualityMeasurment
             return feet;
         }
 
-        public double InchMeasure(string input)
+        public double GetFeet(double inch)
         {
-            //if input type is not equal to null
-            if (input != null)
-            {
-                // Calculate feet value
-                if (double.TryParse(input, out feet))
-                {
-                    inch = feet / 12;
-                }
-                else
-                {
-                    //else throw Type Not Match exception
-                    throw new CustomException("Type Not Match", CustomException.ExceptionType.TYPE_NOT_MATCH);
-                }
-            }
-            else
-            {
-                //else throw Null exception
-                throw new CustomException("Null", CustomException.ExceptionType.INPUT_NULL);
-            }
-            return inch;
+            return feet = inch * 12;
         }
-
+        public double GetInch(double feet)
+        {
+            return inch = feet / 12;
+        }
+        internal double length(Unit feet, string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
