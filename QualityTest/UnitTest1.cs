@@ -16,7 +16,6 @@ namespace QualityTest
             double Feet = converstion.Measure("3");
             Assert.AreEqual(36, Feet);
         }
-
         /// <summary>
         ///UC1: TC-1.2: Zero feet should return zero
         /// </summary>
@@ -110,6 +109,21 @@ namespace QualityTest
             double quantity1 = converstion1.InchMeasure("0.0");
             bool areEqual = ReferenceEquals(quantity, quantity1);
             Assert.IsFalse(areEqual);
+        }
+        /// <summary>
+        ///UC1: TC-1.10: Test of equality to check type for Inches
+        /// </summary>
+        [Test]
+        public void GivenTypeforInches_whenCheckType_ShouldReturnTypenotmatch()
+        {
+            try
+            {
+                converstion.InchMeasure("1");
+            }
+            catch (CustomException e)
+            {
+                Assert.AreEqual(e.type, CustomException.ExceptionType.TYPE_NOT_MATCH);
+            }
         }
     }
 }
