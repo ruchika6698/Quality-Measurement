@@ -31,7 +31,7 @@ namespace QualityMeasurment
                 // Calculate feet value
                 if (double.TryParse(input, out inch))
                 {
-                    // Switch case
+                    // Switch case for Feet ,Inches
                     switch (option)
                     {
                         case Unit.feet:

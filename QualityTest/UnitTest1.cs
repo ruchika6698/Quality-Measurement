@@ -165,13 +165,22 @@ namespace QualityTest
             Assert.AreNotEqual(1, Feet);
         }
         /// <summary>
-        ///UC1: TC-1.14: 1 feet not equal to one inch
+        ///UC1: TC-1.15: 1 feet not equal to one inch
         /// </summary>
         [Test]
         public void GivenFeet_WhenInch_ShouldReturnInInches()
         {
             double Feet = converstion.GetFeet(1);
             Assert.AreEqual(12, Feet);
+        }
+        /// <summary>
+        ///UC1: TC-1.16: 12 inch is equal to 1 feet
+        /// </summary>
+        [Test]
+        public void GivenInch_WhenConvertFeet_ShouldReturnInFeet()
+        {
+            double Inch = converstion.GetInch(12);
+            Assert.AreEqual(1,Inch);
         }
     }
 }
