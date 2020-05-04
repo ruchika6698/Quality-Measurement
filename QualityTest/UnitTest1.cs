@@ -136,5 +136,15 @@ namespace QualityTest
             bool equal = ReferenceEquals(converstion.GetType(), converstion1.GetType());
             Assert.IsTrue(equal);
         }
+        /// <summary>
+        ///UC1: TC-1.13: 0 inch and 0 feet should return equal
+        /// </summary>
+        [Test]
+        public void GivenInchesandFeet_Whenbothzero_ShouldReturnequal()
+        {
+            double Feet = converstion.GetFeet(0);
+            double inch = converstion.GetInch(0);
+            Assert.AreEqual(Feet, inch);
+        }
     }
 }

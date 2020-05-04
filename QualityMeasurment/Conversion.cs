@@ -10,14 +10,14 @@ namespace QualityMeasurment
         public double feet;
         private double inch;
 
-        /// <summary>
-        /// Main Method
-        /// </summary>
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Welcome to Quality Measurment problem");
-        }
+        
         public enum Unit { feet, inch, yard }
+
+        internal double length(Unit feet, string v)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Method to Feet
         /// </summary>
