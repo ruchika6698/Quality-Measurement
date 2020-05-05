@@ -192,7 +192,7 @@ namespace QualityTest
             Assert.AreEqual(3, Yard);
         }
         /// <summary>
-        ///UC1: TC-1.18: 1 feet not equal to 1 yard
+        ///UC2: TC-1.18: 1 feet not equal to 1 yard
         /// </summary>
         [Test]
         public void GivenYardandFeet_Whenvalue1_ShouldReturnnotequalYard()
@@ -201,7 +201,7 @@ namespace QualityTest
             Assert.AreNotEqual(1, Yard);
         }
         /// <summary>
-        ///UC1: TC-1.19: 1 inch not equal to 1 yard
+        ///UC2: TC-1.19: 1 inch not equal to 1 yard
         /// </summary>
         [Test]
         public void GivenInchandYard_Whenvalue1_ShouldReturnnotequalYard()
@@ -211,7 +211,7 @@ namespace QualityTest
             Assert.AreNotEqual(Inch, Yard);
         }
         /// <summary>
-        ///UC1: TC-1.19: 1 Yard is equal to 36 inch
+        ///UC2: TC-1.19: 1 Yard is equal to 36 inch
         /// </summary>
         [Test]
         public void GivenInchandYard_WhenvalueisInch_ShouldReturnequalYard()
@@ -221,7 +221,7 @@ namespace QualityTest
             Assert.AreEqual(Yard, Inch);
         }
         /// <summary>
-        ///UC1: TC-1.20: 36 inch is equal to 1 yard
+        ///UC2: TC-1.20: 36 inch is equal to 1 yard
         /// </summary>
         [Test]
         public void GivenInchandYard_WhenvalueisYard_ShouldReturnequalInch()
@@ -229,6 +229,15 @@ namespace QualityTest
             double Inch = converstion.GetInch(36);
             double Yard = converstion.GetYard(1);
             Assert.AreEqual(Inch,Yard);
+        }
+        /// <summary>
+        ///UC3: 2 inches is equal to 5 centimeter
+        /// </summary>
+        [Test]
+        public void GivenInchandcentimeter_WhenvalueInch_ShouldReturnequalcentimeter()
+        {
+            double Yard = converstion.GetCentimeter(2);
+            Assert.AreEqual(5, Yard);
         }
     }
 }
