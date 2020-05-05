@@ -211,7 +211,7 @@ namespace QualityTest
             Assert.AreNotEqual(Inch, Yard);
         }
         /// <summary>
-        ///UC2: TC-1.19: 1 Yard is equal to 36 inch
+        ///UC2: TC-1.20: 1 Yard is equal to 36 inch
         /// </summary>
         [Test]
         public void GivenInchandYard_WhenvalueisInch_ShouldReturnequalYard()
@@ -221,7 +221,7 @@ namespace QualityTest
             Assert.AreEqual(Yard, Inch);
         }
         /// <summary>
-        ///UC2: TC-1.20: 36 inch is equal to 1 yard
+        ///UC2: TC-1.21: 36 inch is equal to 1 yard
         /// </summary>
         [Test]
         public void GivenInchandYard_WhenvalueisYard_ShouldReturnequalInch()
@@ -282,6 +282,17 @@ namespace QualityTest
             double value2 = converstion.CentimeterToInch(2.5);
             double TotalInch = (value1 + value2);
             Assert.AreEqual(3, TotalInch);
+        }
+        /// <summary>
+        ///UC5: 1 gollan to litre conversion 
+        /// </summary>
+        [Test]
+        public void Givengollan_Whenvaluegollan_ShouldReturnequallitre()
+        {
+            double gollan = converstion.GallonToLitre(1);
+            Assert.AreEqual(3.78, gollan);
+            double litre = converstion.LiterToMilliliterAndKgToGramsAndToneToKgs(1);
+            Assert.AreEqual(1000, litre);
         }
     }
 }

@@ -96,7 +96,7 @@ namespace QualityMeasurment
         /// Method for yard
         /// </summary>
         /// <param name="inch"> input feet </param>
-        /// <returns> Calculate Yard </returns>
+        /// <returns> Calculate Centimeter </returns>
         public double GetCentimeter(double inch)
         {
             return centimeter = inch * 2.5;
@@ -104,6 +104,27 @@ namespace QualityMeasurment
         public double CentimeterToInch(double centimeter)
         {
             return inch = centimeter / 2.5;
+        }
+        /// <summary>
+        ///  Method For Gallon
+        /// </summary>
+        /// <param name="gollon"> input feet </param>
+        /// <returns> Calculate GallonToLitre </returns>
+        public double GallonToLitre(double gollon)
+        {
+            double litre = 3.78;
+            return litre * gollon;
+        }
+        /// <summary>
+        ///  Method For Liter , Kg And Tonne
+        /// </summary>
+        /// <param name="gollon"> input feet </param>
+        /// <returns> Calculate Liter To Milliliter,kg,gram.tone </returns>
+
+        public double LiterToMilliliterAndKgToGramsAndToneToKgs(double weights)
+        {
+            double mlAndKgAndgrams = 1000;
+            return mlAndKgAndgrams * weights;
         }
         internal double length(Unit feet, string v)
         {
