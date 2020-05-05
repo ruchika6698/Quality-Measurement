@@ -11,7 +11,6 @@ namespace QualityMeasurment
         private double inch;
         private double yard;
         private double centimeter;
-        private double Celcius;
 
         public enum Unit { feet, inch, yard,centimeter }
         /// <summary>
@@ -36,7 +35,7 @@ namespace QualityMeasurment
                 // Calculate feet value
                 if (double.TryParse(input, out inch))
                 {
-                    // Switch case for Feet ,Inches
+                    // Switch case for Feet ,Inches,yard,Centimeter
                     switch (option)
                     {
                         case Unit.feet:
@@ -127,19 +126,25 @@ namespace QualityMeasurment
             double mlAndKgAndgrams = 1000;
             return mlAndKgAndgrams * weights;
         }
+        /// <summary>
+        ///  Method For Gallon
+        /// </summary>
+        /// <param name="milliliter"> input milliliter</param>
+        /// <returns> Milimetre to litre tone to kg Conversion </returns>
         public double MilliliterToLiterandtonetoKg(double milliliter)
         {
             double liter = 1000;
             return liter / milliliter;
         }
+        /// <summary>
+        ///  Method For Gallon
+        /// </summary>
+        /// <param name="fahrenhit"> input fahrenhit</param>
+        /// <returns> Convert Degree farenhit to celcius </returns>
         public double FarenhitToCelcius(double fahrenhit)
         {
             double Celsius = (fahrenhit - 32) * 5 / 9;
             return Celsius;
-        }
-        internal double length(Unit feet, string v)
-        {
-            throw new NotImplementedException();
         }
     }
 }
