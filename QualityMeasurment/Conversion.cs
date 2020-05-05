@@ -21,10 +21,11 @@ namespace QualityMeasurment
 
         }
         /// <summary>
-        /// Method to Feet
+        /// Method for measurement
         /// </summary>
         /// <param name="input"> input </param>
-        /// <returns> Calculate Feet </returns>
+        /// <param name="option"> input </param>
+        /// <returns> Calculate Measurement </returns>
         public double Measure(Unit option, string input)
         {
             //if input type is not equal to null
@@ -58,21 +59,34 @@ namespace QualityMeasurment
             return feet;
         }
 
+        /// <summary>
+        /// Method for Feet
+        /// </summary>
+        /// <param name="inch"> input inch </param>
+        /// <returns> Calculate Feet </returns>
         public double GetFeet(double inch)
         {
             return feet = inch * 12;
         }
+
+        /// <summary>
+        /// Method for inch
+        /// </summary>
+        /// <param name="feet"> input feet </param>
+        /// <returns> Calculate Inch </returns>
         public double GetInch(double feet)
         {
             return inch = feet / 12;
         }
+
+        /// <summary>
+        /// Method for yard
+        /// </summary>
+        /// <param name="feet"> input feet </param>
+        /// <returns> Calculate Yard </returns>
         public double GetYard(double feet)
         {
             return yard = feet * 3;
-        }
-        public double GetInchtoYard(double inch)
-        {
-            return yard = inch * 36;
         }
         internal double length(Unit feet, string v)
         {
