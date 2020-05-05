@@ -70,6 +70,10 @@ namespace QualityMeasurment
         {
             return yard = feet * 3;
         }
+        public double GetInchtoYard(double inch)
+        {
+            return yard = inch * 36;
+        }
         internal double length(Unit feet, string v)
         {
             throw new NotImplementedException();
