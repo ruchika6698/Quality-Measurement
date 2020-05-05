@@ -210,5 +210,14 @@ namespace QualityTest
             double Yard = converstion.GetYard(0.33);
             Assert.AreNotEqual(Inch, Yard);
         }
+        /// <summary>
+        ///UC1: TC-1.19: 1 Yard is equal to 36 inch
+        /// </summary>
+        [Test]
+        public void GivenInchandYard_WhenvalueisInch_ShouldReturnequalYard()
+        {
+            double Yard = converstion.GetYard(12);
+            Assert.AreEqual(36, Yard);
+        }
     }
 }
