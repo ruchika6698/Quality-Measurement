@@ -195,10 +195,20 @@ namespace QualityTest
         ///UC1: TC-1.18: 1 feet not equal to 1 yard
         /// </summary>
         [Test]
-        public void GivenYardandFeet_Whenvalue1_ShouldReturnnotequal()
+        public void GivenYardandFeet_Whenvalue1_ShouldReturnnotequalYard()
         {
             double Yard = converstion.GetYard(1);
             Assert.AreNotEqual(1, Yard);
+        }
+        /// <summary>
+        ///UC1: TC-1.19: 1 inch not equal to 1 yard
+        /// </summary>
+        [Test]
+        public void GivenInchandYard_Whenvalue1_ShouldReturnnotequalYard()
+        {
+            double Inch = converstion.GetInch(12);
+            double Yard = converstion.GetYard(0.33);
+            Assert.AreNotEqual(Inch, Yard);
         }
     }
 }
