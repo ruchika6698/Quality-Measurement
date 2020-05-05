@@ -108,12 +108,12 @@ namespace QualityMeasurment
         /// <summary>
         ///  Method For Gallon
         /// </summary>
-        /// <param name="gollon"> input feet </param>
+        /// <param name="gallon"> input feet </param>
         /// <returns> Calculate GallonToLitre </returns>
-        public double GallonToLitre(double gollon)
+        public double GallonToLitre(double gallon)
         {
             double litre = 3.78;
-            return litre * gollon;
+            return litre * gallon;
         }
         /// <summary>
         ///  Method For Liter , Kg And Tonne
@@ -125,6 +125,11 @@ namespace QualityMeasurment
         {
             double mlAndKgAndgrams = 1000;
             return mlAndKgAndgrams * weights;
+        }
+        public double MilliliterToLiter(double milliliter)
+        {
+            double liter = 1000;
+            return liter / milliliter;
         }
         internal double length(Unit feet, string v)
         {

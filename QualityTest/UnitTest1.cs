@@ -289,10 +289,25 @@ namespace QualityTest
         [Test]
         public void Givengollan_Whenvaluegollan_ShouldReturnequallitre()
         {
-            double gollan = converstion.GallonToLitre(1);
-            Assert.AreEqual(3.78, gollan);
+            double gallan = converstion.GallonToLitre(1);
+            Assert.AreEqual(3.78, gallan);
             double litre = converstion.LiterToMilliliterAndKgToGramsAndToneToKgs(1);
             Assert.AreEqual(1000, litre);
+        }
+        /// <summary>
+        ///UC6: 1 gollan to litre conversion 
+        /// </summary>
+        [Test]
+        public void GivengollanandLitres_WhenAddVolume_ShouldReturnequallitre()
+        {
+            double value1 = converstion.GallonToLitre(1);
+            double value2 = 3.78;
+            double TotalGallonLitres = (value1 + value2);
+            Assert.AreEqual(7.56, TotalGallonLitres);
+            double litre = 1;
+            double ml = converstion.MilliliterToLiter(1000);
+            double TotalLitres = (litre + ml);
+            Assert.AreEqual(2, TotalLitres);
         }
     }
 }
