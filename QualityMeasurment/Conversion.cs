@@ -126,7 +126,7 @@ namespace QualityMeasurment
             double mlAndKgAndgrams = 1000;
             return mlAndKgAndgrams * weights;
         }
-        public double MilliliterToLiter(double milliliter)
+        public double MilliliterToLiterandtonetoKg(double milliliter)
         {
             double liter = 1000;
             return liter / milliliter;

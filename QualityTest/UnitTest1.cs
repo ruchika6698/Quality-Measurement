@@ -305,9 +305,20 @@ namespace QualityTest
             double TotalGallonLitres = (value1 + value2);
             Assert.AreEqual(7.56, TotalGallonLitres);
             double litre = 1;
-            double ml = converstion.MilliliterToLiter(1000);
+            double ml = converstion.MilliliterToLiterandtonetoKg(1000);
             double TotalLitres = (litre + ml);
             Assert.AreEqual(2, TotalLitres);
+        }
+        /// <summary>
+        ///UC6:Add weight in grams
+        /// </summary>
+        [Test]
+        public void Givenweight_WhenAddingrams_ShouldReturnequalkg()
+        {
+            double Tone = converstion.MilliliterToLiterandtonetoKg(1000);
+            double kg = converstion.LiterToMilliliterAndKgToGramsAndToneToKgs(1);
+            double Total = (Tone + kg);
+            Assert.AreEqual(1001, Total);
         }
     }
 }
