@@ -182,5 +182,14 @@ namespace QualityTest
             double Inch = converstion.GetInch(12);
             Assert.AreEqual(1,Inch);
         }
+        /// <summary>
+        ///UC2: TC-1.17:3 feet is equal to one yard
+        /// </summary>
+        [Test]
+        public void GivenFeet_whenvertFeet_ShouldReturnInYard()
+        {
+            double Yard = converstion.GetYard(1);
+            Assert.AreEqual(3, Yard);
+        }
     }
 }

@@ -9,6 +9,8 @@ namespace QualityMeasurment
         /// </summary>
         public double feet;
         private double inch;
+        private double yard;
+
         public enum Unit { feet, inch, yard }
         /// <summary>
         /// Main Method
@@ -38,6 +40,8 @@ namespace QualityMeasurment
                             return GetFeet(feet);
                         case Unit.inch:
                             return GetInch(inch);
+                        case Unit.yard:
+                            return GetYard(yard);
                     };
                 }
                 else
@@ -61,6 +65,10 @@ namespace QualityMeasurment
         public double GetInch(double feet)
         {
             return inch = feet / 12;
+        }
+        public double GetYard(double feet)
+        {
+            return yard = feet * 3;
         }
         internal double length(Unit feet, string v)
         {
