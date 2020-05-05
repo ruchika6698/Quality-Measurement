@@ -191,5 +191,14 @@ namespace QualityTest
             double Yard = converstion.GetYard(1);
             Assert.AreEqual(3, Yard);
         }
+        /// <summary>
+        ///UC1: TC-1.18: 1 feet not equal to 1 yard
+        /// </summary>
+        [Test]
+        public void GivenYardandFeet_Whenvalue1_ShouldReturnnotequal()
+        {
+            double Yard = converstion.GetYard(1);
+            Assert.AreNotEqual(1, Yard);
+        }
     }
 }
