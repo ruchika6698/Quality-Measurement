@@ -69,7 +69,7 @@ namespace QualityMeasurment
         /// <returns> Calculate Feet </returns>
         public double GetFeet(double inch)
         {
-            return feet = inch * 12;
+            return feet =inch * 12;
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace QualityMeasurment
         /// <returns> Calculate Inch </returns>
         public double GetInch(double feet)
         {
-            return inch = feet / 12;
+            return inch =feet / 12;
         }
 
         /// <summary>
@@ -100,6 +100,10 @@ namespace QualityMeasurment
         public double GetCentimeter(double inch)
         {
             return centimeter = inch * 2.5;
+        }
+        public double CentimeterToInch(double centimeter)
+        {
+            return inch = centimeter / 2.5;
         }
         internal double length(Unit feet, string v)
         {

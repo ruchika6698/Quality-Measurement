@@ -239,5 +239,49 @@ namespace QualityTest
             double Yard = converstion.GetCentimeter(2);
             Assert.AreEqual(5, Yard);
         }
+        /// <summary>
+        ///UC4:TC1.1: add 2 inch and 2 inch length and retuen 4 inches
+        /// </summary>
+        [Test]
+        public void Given2inch_WhenvalueInch_ShouldReturnequalinch()
+        {
+            double value1= converstion.Measure(Conversion.Unit.inch,"24");
+            double value2 = converstion.Measure(Conversion.Unit.inch,"24");
+            double TotalInch = (value1 + value2);
+            Assert.AreEqual(4,TotalInch);
+        }
+        /// <summary>
+        ///UC4: TC1.2: add 1 feet and 2 inch length and retuen in 14 inches
+        /// </summary>
+        [Test]
+        public void GivenFeetinch_WhenvalueInch_ShouldReturnequalInch()
+        {
+            double value1 = converstion.GetFeet(1);
+            double value2 = converstion.GetInch(24);
+            double TotalInch = (value1 + value2);
+            Assert.AreEqual(14, TotalInch);
+        }
+        /// <summary>
+        ///UC4: TC1.3: add 1 feet and 1 feet length and retuen in 24 inches
+        /// </summary>
+        [Test]
+        public void GivenFeet_WhenvalueFeet_ShouldReturnequalInch()
+        {
+            double value1 = converstion.GetFeet(1);
+            double value2 = converstion.GetFeet(1);
+            double TotalInch = (value1 + value2);
+            Assert.AreEqual(24, TotalInch);
+        }
+        /// <summary>
+        ///UC4: TC1.4: add 2 inch and 2.5 cm length and retuen in 3 inches
+        /// </summary>
+        [Test]
+        public void GivenInchCentimter_WhenvalueFeet_ShouldReturnequalInch()
+        {
+            double value1 = converstion.GetInch(24);
+            double value2 = converstion.CentimeterToInch(2.5);
+            double TotalInch = (value1 + value2);
+            Assert.AreEqual(3, TotalInch);
+        }
     }
 }
