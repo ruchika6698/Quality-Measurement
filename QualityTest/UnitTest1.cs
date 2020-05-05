@@ -310,7 +310,7 @@ namespace QualityTest
             Assert.AreEqual(2, TotalLitres);
         }
         /// <summary>
-        ///UC6:Add weight in grams
+        ///UC7:Add weight in grams
         /// </summary>
         [Test]
         public void Givenweight_WhenAddingrams_ShouldReturnequalkg()
@@ -319,6 +319,15 @@ namespace QualityTest
             double kg = converstion.LiterToMilliliterAndKgToGramsAndToneToKgs(1);
             double Total = (Tone + kg);
             Assert.AreEqual(1001, Total);
+        }
+        /// <summary>
+        ///UC8: convert degree fareinhit to celcius
+        /// </summary>
+        [Test]
+        public void GivendegreeFarenhit_WhenTemperature_ShouldReturnequalCelcius()
+        {
+            double celcius = converstion.FarenhitToCelcius(212);
+            Assert.AreEqual(100, celcius);
         }
     }
 }

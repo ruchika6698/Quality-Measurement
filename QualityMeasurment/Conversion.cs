@@ -11,6 +11,7 @@ namespace QualityMeasurment
         private double inch;
         private double yard;
         private double centimeter;
+        private double Celcius;
 
         public enum Unit { feet, inch, yard,centimeter }
         /// <summary>
@@ -108,7 +109,7 @@ namespace QualityMeasurment
         /// <summary>
         ///  Method For Gallon
         /// </summary>
-        /// <param name="gallon"> input feet </param>
+        /// <param name="gallon"> input gallon </param>
         /// <returns> Calculate GallonToLitre </returns>
         public double GallonToLitre(double gallon)
         {
@@ -118,7 +119,7 @@ namespace QualityMeasurment
         /// <summary>
         ///  Method For Liter , Kg And Tonne
         /// </summary>
-        /// <param name="gollon"> input feet </param>
+        /// <param name="weights"> input weights </param>
         /// <returns> Calculate Liter To Milliliter,kg,gram.tone </returns>
 
         public double LiterToMilliliterAndKgToGramsAndToneToKgs(double weights)
@@ -130,6 +131,11 @@ namespace QualityMeasurment
         {
             double liter = 1000;
             return liter / milliliter;
+        }
+        public double FarenhitToCelcius(double fahrenhit)
+        {
+            double Celsius = (fahrenhit - 32) * 5 / 9;
+            return Celsius;
         }
         internal double length(Unit feet, string v)
         {
