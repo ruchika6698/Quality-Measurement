@@ -25,7 +25,7 @@ namespace QualityMeasurment
         /// </summary>
         /// <param name="input"> input </param>
         /// <returns> Calculate Feet </returns>
-        public double Measure(Unit option,string input)
+        public double Measure(Unit option, string input)
         {
             //if input type is not equal to null
             if (input != null)
