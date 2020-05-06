@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QualityMeasurment", "QualityMeasurment.csproj", "{9D9D7EC0-7988-42CF-8B90-29C783774974}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuantityMeasurment", "QuantityMeasurment.csproj", "{9D9D7EC0-7988-42CF-8B90-29C783774974}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QualityTest", "..\QualityTest\QualityTest.csproj", "{774C9815-5F55-4245-9825-4C063A0AB416}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuantityTest", "..\QualityTest\QuantityTest.csproj", "{774C9815-5F55-4245-9825-4C063A0AB416}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

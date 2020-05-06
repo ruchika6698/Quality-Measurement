@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\QualityMeasurment\QualityMeasurment.csproj" />
+    <ProjectReference Include="..\QualityMeasurment\QuantityMeasurment.csproj" />
   </ItemGroup>
 
 </Project>

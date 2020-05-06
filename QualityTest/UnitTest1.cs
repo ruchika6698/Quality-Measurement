@@ -1,3 +1,9 @@
+///-----------------------------------------------------------------
+///   Class:       Tests
+///   Description: All Tests cases
+///   Author:      Ruchika                   Date: 5/5/2020
+///-----------------------------------------------------------------
+
 using NUnit.Framework;
 using QualityMeasurment;
 
@@ -5,8 +11,8 @@ namespace QualityTest
 {
     public class Tests
     {
-        Conversion converstion = new Conversion();
-        Conversion converstion1 = new Conversion();
+        Unitconversion converstion = new Unitconversion();
+        Unitconversion converstion1 = new Unitconversion();
         /// <summary>
         ///UC1: TC-1.1: Test for comparision
         /// </summary>
@@ -22,8 +28,8 @@ namespace QualityTest
         [Test]
         public void GivenZeroInch_whenZeroFeet_shouldRetrunEqual()
         {
-            Conversion converstion = new Conversion();
-            double inch = converstion.Measure(Conversion.Unit.feet, "0");
+            Unitconversion converstion = new Unitconversion();
+            double inch = converstion.Measure(Unitconversion.Unit.feet, "0");
             Assert.AreEqual(0, inch);
         }
         /// <summary>
@@ -34,12 +40,13 @@ namespace QualityTest
         {
             try
             {
-                Conversion converstion = new Conversion();
-                converstion.Measure(Conversion.Unit.feet, null);
+                Unitconversion converstion = new Unitconversion();
+                // give null value
+                converstion.Measure(Unitconversion.Unit.feet, null);
             }
             catch (CustomException e)
             {
-                Assert.AreEqual(e.type, CustomException.ExceptionType.INPUT_NULL);
+                Assert.AreEqual("Null", e.Message);
             }
         }
         /// <summary>
@@ -48,8 +55,8 @@ namespace QualityTest
         [Test]
         public void GivenRefType_whenCheckRef_ShouldReturnFalse()
         {
-            double quantity = converstion.Measure(Conversion.Unit.feet, "0.0");
-            double quantity1 = converstion1.Measure(Conversion.Unit.feet, "0.0");
+            double quantity = converstion.Measure(Unitconversion.Unit.feet, "0.0");
+            double quantity1 = converstion1.Measure(Unitconversion.Unit.feet, "0.0");
             bool areEqual = ReferenceEquals(quantity, quantity1);
             Assert.IsFalse(areEqual);
         }
@@ -61,11 +68,11 @@ namespace QualityTest
         {
             try
             {
-                converstion.Measure(Conversion.Unit.feet, "1");
+                converstion.Measure(Unitconversion.Unit.feet, "");
             }
             catch (CustomException e)
             {
-                Assert.AreEqual(e.type, CustomException.ExceptionType.TYPE_NOT_MATCH);
+                Assert.AreEqual("Type Not Match", e.Message);
             }
         }
         /// <summary>
@@ -74,8 +81,8 @@ namespace QualityTest
         [Test]
         public void Given_Equality_Type_Feet_And_Should_Return_True()
         {
-            bool equal = ReferenceEquals(converstion.GetType(), converstion1.GetType());
-            Assert.IsTrue(equal);
+            bool equalitytype = ReferenceEquals(converstion.GetType(), converstion1.GetType());
+            Assert.IsTrue(equalitytype);
         }
         /// <summary>
         ///UC1: TC-1.7: Test for comparision
@@ -94,11 +101,11 @@ namespace QualityTest
         {
             try
             {
-                converstion.Measure(Conversion.Unit.inch, null);
+                converstion.Measure(Unitconversion.Unit.inch, null);
             }
             catch (CustomException e)
             {
-                Assert.AreEqual(e.type, CustomException.ExceptionType.INPUT_NULL);
+                Assert.AreEqual("Null", e.Message);
             }
         }
         /// <summary>
@@ -107,10 +114,10 @@ namespace QualityTest
         [Test]
         public void GivenInchesRefType_whenCheckRef_ShouldReturnFalse()
         {
-            double quantity = converstion.Measure(Conversion.Unit.inch, "0.0");
-            double quantity1 = converstion.Measure(Conversion.Unit.inch, "0.0");
-            bool areEqual = ReferenceEquals(quantity, quantity1);
-            Assert.IsFalse(areEqual);
+            double quantity = converstion.Measure(Unitconversion.Unit.inch, "0.0");
+            double quantity1 = converstion.Measure(Unitconversion.Unit.inch, "0.0");
+            bool equality = ReferenceEquals(quantity, quantity1);
+            Assert.IsFalse(equality);
         }
         /// <summary>
         ///UC1: TC-1.10: Test of equality to check type for Inches
@@ -120,11 +127,11 @@ namespace QualityTest
         {
             try
             {
-                converstion.Measure(Conversion.Unit.inch, "1");
+                converstion.Measure(Unitconversion.Unit.inch, "");
             }
             catch (CustomException e)
             {
-                Assert.AreEqual(e.type, CustomException.ExceptionType.TYPE_NOT_MATCH);
+                Assert.AreEqual("Type Not Match", e.Message);
             }
         }
         /// <summary>
@@ -133,8 +140,8 @@ namespace QualityTest
         [Test]
         public void GivenInches_Equality_Type_FeetAnd_ShouldReturnTrue()
         {
-            bool equal = ReferenceEquals(converstion.GetType(), converstion1.GetType());
-            Assert.IsTrue(equal);
+            bool equalitytype = ReferenceEquals(converstion.GetType(), converstion1.GetType());
+            Assert.IsTrue(equalitytype);
         }
         /// <summary>
         ///UC1: TC-1.12: 0 inch and 0 feet should return equal
@@ -142,7 +149,9 @@ namespace QualityTest
         [Test]
         public void GivenInchesandFeet_Whenbothzero_ShouldReturnequal()
         {
+            //for 0 inch
             double Feet = converstion.GetFeet(0);
+            //for o feet
             double inch = converstion.GetInch(0);
             Assert.AreEqual(Feet, inch);
         }
@@ -165,7 +174,7 @@ namespace QualityTest
             Assert.AreNotEqual(1, Feet);
         }
         /// <summary>
-        ///UC1: TC-1.15: 1 feet not equal to one inch
+        ///UC1: TC-1.15: 1 feet is equal to one inch
         /// </summary>
         [Test]
         public void GivenFeet_WhenInch_ShouldReturnInInches()
@@ -216,7 +225,9 @@ namespace QualityTest
         [Test]
         public void GivenInchandYard_WhenvalueisInch_ShouldReturnequalYard()
         {
+            //for 1 yard
             double Yard = converstion.GetYard(1);
+            //for 36 inch
             double Inch = converstion.GetInch(36);
             Assert.AreEqual(Yard, Inch);
         }
@@ -226,7 +237,9 @@ namespace QualityTest
         [Test]
         public void GivenInchandYard_WhenvalueisYard_ShouldReturnequalInch()
         {
+            //for 36 inch
             double Inch = converstion.GetInch(36);
+            //for 1 yard
             double Yard = converstion.GetYard(1);
             Assert.AreEqual(Inch,Yard);
         }
@@ -245,8 +258,9 @@ namespace QualityTest
         [Test]
         public void Given2inch_WhenvalueInch_ShouldReturnequalinch()
         {
-            double value1= converstion.Measure(Conversion.Unit.inch,"24");
-            double value2 = converstion.Measure(Conversion.Unit.inch,"24");
+            // for 2 inch=24 feet
+            double value1 = converstion.Measure(Unitconversion.Unit.inch,"24");
+            double value2 = converstion.Measure(Unitconversion.Unit.inch,"24");
             double TotalInch = (value1 + value2);
             Assert.AreEqual(4,TotalInch);
         }
@@ -256,7 +270,9 @@ namespace QualityTest
         [Test]
         public void GivenFeetinch_WhenvalueInch_ShouldReturnequalInch()
         {
+            // value1 for 1 feet
             double value1 = converstion.GetFeet(1);
+            // value2 for 2 inch=24 feet
             double value2 = converstion.GetInch(24);
             double TotalInch = (value1 + value2);
             Assert.AreEqual(14, TotalInch);
@@ -267,6 +283,7 @@ namespace QualityTest
         [Test]
         public void GivenFeet_WhenvalueFeet_ShouldReturnequalInch()
         {
+            // value for 1 feet
             double value1 = converstion.GetFeet(1);
             double value2 = converstion.GetFeet(1);
             double TotalInch = (value1 + value2);
@@ -278,7 +295,9 @@ namespace QualityTest
         [Test]
         public void GivenInchCentimter_WhenvalueFeet_ShouldReturnequalInch()
         {
+            // value1 for 2 inch
             double value1 = converstion.GetInch(24);
+            // value1 for 2.5 cm
             double value2 = converstion.CentimeterToInch(2.5);
             double TotalInch = (value1 + value2);
             Assert.AreEqual(3, TotalInch);
@@ -289,21 +308,25 @@ namespace QualityTest
         [Test]
         public void Givengollan_Whenvaluegollan_ShouldReturnequallitre()
         {
+            // check for 1 Gallon=3.78 litrs 
             double gallan = converstion.GallonToLitre(1);
             Assert.AreEqual(3.78, gallan);
+            // check for 1 litre=1000 ml 
             double litre = converstion.LiterToMilliliterAndKgToGramsAndToneToKgs(1);
             Assert.AreEqual(1000, litre);
         }
         /// <summary>
-        ///UC6: 1 gollan to litre conversion 
+        ///UC6: Volume in litres
         /// </summary>
         [Test]
         public void GivengollanandLitres_WhenAddVolume_ShouldReturnequallitre()
         {
+            //value1= check for 1 Gallon=3.78 litrs 
             double value1 = converstion.GallonToLitre(1);
             double value2 = 3.78;
             double TotalGallonLitres = (value1 + value2);
             Assert.AreEqual(7.56, TotalGallonLitres);
+            //Check for 1 litre and 1000 ml
             double litre = 1;
             double ml = converstion.MilliliterToLiterandtonetoKg(1000);
             double TotalLitres = (litre + ml);
@@ -315,7 +338,9 @@ namespace QualityTest
         [Test]
         public void Givenweight_WhenAddingrams_ShouldReturnequalkg()
         {
+            //check for 1 tone
             double Tone = converstion.MilliliterToLiterandtonetoKg(1000);
+            // check for 1 kg
             double kg = converstion.LiterToMilliliterAndKgToGramsAndToneToKgs(1);
             double Total = (Tone + kg);
             Assert.AreEqual(1001, Total);

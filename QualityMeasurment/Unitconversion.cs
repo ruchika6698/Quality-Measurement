@@ -1,8 +1,14 @@
-﻿using System;
+﻿///-----------------------------------------------------------------
+///   Class:       Conversion
+///   Description: All methods for consertion of units
+///   Author:      Ruchika                   Date: 5/5/2020
+///-----------------------------------------------------------------
+
+using System;
 
 namespace QualityMeasurment
 {
-    public class Conversion
+    public class Unitconversion
     {
         /// <summary>
         /// Variable Declaration
@@ -12,7 +18,7 @@ namespace QualityMeasurment
         private double yard;
         private double centimeter;
 
-        public enum Unit { feet, inch, yard,centimeter }
+        public enum Unit { feet, inch, yard, centimeter }
         /// <summary>
         /// Main Method
         /// </summary>
@@ -50,13 +56,13 @@ namespace QualityMeasurment
                 }
                 else
                 {
-                    //else throw Type Not Match exception
+                    // throw Type Not Match exception
                     throw new CustomException("Type Not Match", CustomException.ExceptionType.TYPE_NOT_MATCH);
                 }
             }
             else
             {
-                //else throw Null exception
+                // throw Null exception when value is null
                 throw new CustomException("Null", CustomException.ExceptionType.INPUT_NULL);
             }
             return feet;
@@ -69,7 +75,7 @@ namespace QualityMeasurment
         /// <returns> Calculate Feet </returns>
         public double GetFeet(double inch)
         {
-            return feet =inch * 12;
+            return feet = inch * 12;
         }
 
         /// <summary>
@@ -79,7 +85,7 @@ namespace QualityMeasurment
         /// <returns> Calculate Inch </returns>
         public double GetInch(double feet)
         {
-            return inch =feet / 12;
+            return inch = feet / 12;
         }
 
         /// <summary>
@@ -105,6 +111,7 @@ namespace QualityMeasurment
         {
             return inch = centimeter / 2.5;
         }
+
         /// <summary>
         ///  Method For Gallon
         /// </summary>
@@ -112,15 +119,15 @@ namespace QualityMeasurment
         /// <returns> Calculate GallonToLitre </returns>
         public double GallonToLitre(double gallon)
         {
-            double litre = 3.78;
-            return litre * gallon;
+            double Litre = 3.78;
+            return Litre * gallon;
         }
+
         /// <summary>
         ///  Method For Liter , Kg And Tonne
         /// </summary>
         /// <param name="weights"> input weights </param>
         /// <returns> Calculate Liter To Milliliter,kg,gram.tone </returns>
-
         public double LiterToMilliliterAndKgToGramsAndToneToKgs(double weights)
         {
             double mlAndKgAndgrams = 1000;
@@ -133,8 +140,8 @@ namespace QualityMeasurment
         /// <returns> Milimetre to litre tone to kg Conversion </returns>
         public double MilliliterToLiterandtonetoKg(double milliliter)
         {
-            double liter = 1000;
-            return liter / milliliter;
+            double Litre = 1000;
+            return Litre / milliliter;
         }
         /// <summary>
         ///  Method For Gallon
