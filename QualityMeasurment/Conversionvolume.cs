@@ -4,6 +4,7 @@
 ///   Author:      Ruchika                   Date: 5/5/2020
 ///-----------------------------------------------------------------
 
+using QualityMeasurment;
 using System;
 
 namespace QuantityMeasurment
@@ -21,32 +22,38 @@ namespace QuantityMeasurment
         };
 
         /// <summary>
-        /// Method for compare Volume
+        /// Method for Volume
         /// </summary>
         /// <param name="option"></param>
         /// <param name="value"></param>
         /// <returns>Compare Volume</returns>
         public double Comparevolume(Volume option, double value)
         {
-     
-            switch (option)
+            try
             {
-                case Volume.GALLON_TO_LITRE:
-                    //conversion of Gallon to Litre
-                    double gallonToLitre = value * 3.78;
-                    return gallonToLitre;
-                case Volume.LITRE_TO_MILLILITER:
-                    //conversion of Litre to Mililitre
-                    double litreToMililitre = value * 1000;
-                    return litreToMililitre;
-                case Volume.MILILITRE_TO_LITER:
-                    //converioon of mililtre to litre
-                    double mililitreToLitre = value / 1000;
-                    return mililitreToLitre;
-                default:
-                    //For wrong oprtion
-                    Console.WriteLine("Invalid Option");
-                    return 0;
+                switch (option)
+                {
+                    case Volume.GALLON_TO_LITRE:
+                        //conversion of Gallon to Litre
+                        double gallonToLitre = value * 3.78;
+                        return gallonToLitre;
+                    case Volume.LITRE_TO_MILLILITER:
+                        //conversion of Litre to Mililitre
+                        double litreToMililitre = value * 1000;
+                        return litreToMililitre;
+                    case Volume.MILILITRE_TO_LITER:
+                        //converioon of mililtre to litre
+                        double mililitreToLitre = value / 1000;
+                        return mililitreToLitre;
+                    default:
+                        //For wrong oprtion
+                        Console.WriteLine("Invalid Option");
+                        return 0;
+                }
+            }
+            catch (CustomException)
+            {
+                throw new CustomException(CustomException.ExceptionType.INVALID_CHOICE, "Invalid Choice");
             }
         }
     }

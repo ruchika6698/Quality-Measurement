@@ -14,14 +14,16 @@ namespace QualityMeasurment
     public class CustomException : Exception
     {
         /// <summary>
-        /// enum Exception typw
+        /// enum Exception type
         /// </summary>
         public enum ExceptionType
         {
             INPUT_NULL,
-            TYPE_NOT_MATCH
+            TYPE_NOT_MATCH,
+            INVALID_CHOICE
         }
         public ExceptionType type;
+
 
         /// <summary>
         /// constructor

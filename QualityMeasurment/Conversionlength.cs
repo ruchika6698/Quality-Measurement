@@ -4,7 +4,6 @@
 ///   Author:      Ruchika                   Date: 5/5/2020
 ///-----------------------------------------------------------------
 
-using Microsoft.VisualBasic;
 using System;
 
 namespace QualityMeasurment
@@ -39,70 +38,77 @@ namespace QualityMeasurment
         }
 
         /// <summary>
-        /// Method for measurement
+        /// Method for Length measurement
         /// </summary>
         /// <param name="input"> input </param>
         /// <param name="option"> input </param>
         /// <returns> Calculate Measurement </returns>
         public double Measure(Unit option, string input)
         {
-            //if input type is not equal to null
-            if (input != null)
+            try
             {
-                // Calculate feet value
-                if (double.TryParse(input, out value))
+                //if input type is not equal to null
+                if (input != null)
                 {
-                    // Switch case for Feet ,Inches,yard,Centimeter
-                    switch (option)
+                    // Calculate feet value
+                    if (double.TryParse(input, out value))
                     {
-                        case Unit.FEET_TO_INCH:
-                            //conversion of feet to inch
-                            double feetToInch = value * 12.0;
-                            return feetToInch;
-                        case Unit.INCH_TO_FEET:
-                            //conversion of inch to feet
-                            double inchToFeet = value / 12.0;
-                            return inchToFeet;
-                        case Unit.FEET_TO_YARD:
-                            //conversion of feet to yard
-                            double feetToyard = value / 3.0;
-                            return feetToyard;
-                        case Unit.YARD_TO_FEET:
-                            //conversion of yard to feet
-                            double yardToFeet = value * 3.0;
-                            return yardToFeet;
-                        case Unit.INCH_TO_YARD:
-                            //conversion of inch to yard
-                            double inchToYard = value / 36.0;
-                            return inchToYard;
-                        case Unit.YARD_TO_INCH:
-                            //conversion of yard to inch
-                            double yardToInch = value * 36.0;
-                            return yardToInch;
-                        case Unit.INCH_TO_CENTIMETER:
-                            //conversion of inch to centimeter 
-                            double inchToCentimeter = value * 2.5;
-                            return inchToCentimeter;
-                        case Unit.CENTIMETER_TO_INCH:
-                            //conversion of centimetere to inch
-                            double centimeterToInch = value / 2.5;
-                            return centimeterToInch;
-                        default:
-                            //For wrong oprtion
-                            Console.WriteLine("Invalid Option");
-                            return 0;
-                    };
+                        // Switch case for Feet ,Inches,yard,Centimeter
+                        switch (option)
+                        {
+                            case Unit.FEET_TO_INCH:
+                                //conversion of feet to inch
+                                double feetToInch = value * 12.0;
+                                return feetToInch;
+                            case Unit.INCH_TO_FEET:
+                                //conversion of inch to feet
+                                double inchToFeet = value / 12.0;
+                                return inchToFeet;
+                            case Unit.FEET_TO_YARD:
+                                //conversion of feet to yard
+                                double feetToyard = value / 3.0;
+                                return feetToyard;
+                            case Unit.YARD_TO_FEET:
+                                //conversion of yard to feet
+                                double yardToFeet = value * 3.0;
+                                return yardToFeet;
+                            case Unit.INCH_TO_YARD:
+                                //conversion of inch to yard
+                                double inchToYard = value / 36.0;
+                                return inchToYard;
+                            case Unit.YARD_TO_INCH:
+                                //conversion of yard to inch
+                                double yardToInch = value * 36.0;
+                                return yardToInch;
+                            case Unit.INCH_TO_CENTIMETER:
+                                //conversion of inch to centimeter 
+                                double inchToCentimeter = value * 2.5;
+                                return inchToCentimeter;
+                            case Unit.CENTIMETER_TO_INCH:
+                                //conversion of centimetere to inch
+                                double centimeterToInch = value / 2.5;
+                                return centimeterToInch;
+                            default:
+                                //For wrong oprtion
+                                Console.WriteLine("Invalid Option");
+                                return 0;
+                        };
+                    }
+                    else
+                    {
+                        // throw Type Not Match exception
+                        throw new CustomException(CustomException.ExceptionType.TYPE_NOT_MATCH, "Type Not Match");
+                    }
                 }
                 else
                 {
-                    // throw Type Not Match exception
-                    throw new CustomException(CustomException.ExceptionType.TYPE_NOT_MATCH,"Type Not Match");
+                    // throw Null exception when value is null
+                    throw new CustomException(CustomException.ExceptionType.INPUT_NULL, "Null");
                 }
             }
-            else
+            catch (CustomException)
             {
-                // throw Null exception when value is null
-                throw new CustomException(CustomException.ExceptionType.INPUT_NULL,"Null");
+                throw new CustomException(CustomException.ExceptionType.INVALID_CHOICE, "Invalid Choice");
             }
         }
     }
